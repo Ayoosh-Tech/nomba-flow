@@ -48,7 +48,8 @@ function DashboardLayout() {
                 {menuOpen &&(
                   <div className="md:hidden bg-slate-900 text-white rounded-xl p-4 mb-9">
                     <div className="space-y-4">
-                    <NavItem icon={<FiHome />} text="Overview" to="/dashboard" />  
+                    <NavItem icon={<FiHome />} text="Home" to="/" />
+                    <NavItem icon={<FiGrid />} text="Overview" to="/dashboard" />  
                     <NavItem icon={<FiCreditCard />} text="Transactions" to="/transactions" />
                     <NavItem icon={<FiRefreshCw />} text="Refunds" to="/refunds" />
                     <NavItem icon={<FiBell />} text="Webhooks" to="/webhooks" />

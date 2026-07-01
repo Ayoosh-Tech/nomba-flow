@@ -1,7 +1,178 @@
 import { useState } from "react";
-import axios from "axios";
 
 function Checkout() {
+  const [loading, setLoading] = useState(false);
+
+  const handlePayment = (e) => {
+    e.preventDefault();
+  
+    setLoading(true);
+
+    // Replace this with your backend call later
+    setTimeout(() => {
+      setLoading(false);
+      alert("Redirecting to Nomba Checkout...");
+    }, 2000);
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-100 p-6">
+      <div className="max-w-6xl mx-auto">
+
+        <h1 className="text-3xl font-bold text-slate-800 mb-10">
+          Secure Checkout
+        </h1>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+
+          {/* FORM */}
+
+          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-8">
+
+            <h2 className="text-2xl font-bold mb-6">
+              Customer Information
+            </h2>
+
+            <form
+              onSubmit={handlePayment}
+              className="space-y-5"
+            >
+
+              <input
+                type="text"
+                placeholder="Customer Name"
+                className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
+                required
+              />
+
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
+                required
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
+                required
+              />
+
+              <input
+                type="number"
+                placeholder="Amount (₦)"
+                className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
+                required
+              />
+
+              <textarea
+                rows="4"
+                placeholder="Payment Description"
+                className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
+              />
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-semibold transition disabled:bg-green-300"
+              >
+                {loading
+                  ? "Processing Payment..."
+                  : "Proceed to Secure Payment"}
+              </button>
+
+            </form>
+
+          </div>
+
+          {/* ORDER SUMMARY */}
+
+          <div className="bg-slate-900 text-white rounded-2xl shadow-lg p-8 h-fit">
+
+            <h2 className="text-2xl font-bold mb-6">
+              Order Summary
+            </h2>
+
+            <div className="space-y-4">
+
+              <div className="flex justify-between">
+                <span>Amount</span>
+                <span>₦25,000</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>Processing Fee</span>
+                <span>₦100</span>
+              </div>
+
+              <hr className="border-slate-700" />
+
+              <div className="flex justify-between text-xl font-bold">
+                <span>Total</span>
+                <span>₦25,100</span>
+              </div>
+
+            </div>
+
+            <div className="mt-10">
+
+              <h3 className="font-semibold mb-4">
+                Payment Methods
+              </h3>
+
+              <div className="grid grid-cols-2 gap-3">
+
+                <div className="bg-slate-800 rounded-lg p-3 text-center">
+                  💳 Card
+                </div>
+
+                <div className="bg-slate-800 rounded-lg p-3 text-center">
+                  🏦 Bank
+                </div>
+
+                <div className="bg-slate-800 rounded-lg p-3 text-center">
+                  📱 Transfer
+                </div>
+
+                <div className="bg-slate-800 rounded-lg p-3 text-center">
+                  💰 Wallet
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="mt-10 bg-green-600 rounded-xl p-5">
+
+              <h3 className="font-bold mb-2">
+                🔒 Secure Payment
+              </h3>
+
+              <p className="text-sm">
+                Powered by the Nomba Checkout API. Your payment is encrypted and securely processed.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Checkout;
+
+
+
+
+// Just for Testing
+//import { useState } from "react";
+//import axios from "axios";
+
+{/* function Checkout() {
   const [formData, setFormData] = useState({
     customerName: "",
     email: "",
@@ -40,7 +211,7 @@ function Checkout() {
       console.log(error.response?.data || error.message);
     }*/}
 
-    console.log(response.data);
+   {/* console.log(response.data);
         window.location.href = response.data.data.checkoutLink;
     }
     catch (error) {
@@ -110,5 +281,5 @@ function Checkout() {
   );
 }
 
-export default Checkout;
+export default Checkout; */}
 
