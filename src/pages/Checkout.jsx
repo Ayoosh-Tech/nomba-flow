@@ -14,7 +14,7 @@ function Checkout() {
   setLoading(true);
 
   try {
-    const response = await fetch("http://localhost:5000/api/checkout", {
+    const response = await fetch("https://nomba-flow-backend.onrender.com/api/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
