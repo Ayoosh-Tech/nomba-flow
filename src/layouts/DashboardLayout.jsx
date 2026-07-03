@@ -53,7 +53,8 @@ function DashboardLayout() {
                     <NavItem icon={<FiCreditCard />} text="Transactions" to="/transactions" />
                     <NavItem icon={<FiRefreshCw />} text="Refunds" to="/refunds" />
                     <NavItem icon={<FiBell />} text="Webhooks" to="/webhooks" />
-                    <NavItem icon={<FiSettings />} text="Settings" to="/settings" />                               
+                    <NavItem icon={<FiSettings />} text="Settings" to="/settings" />
+                    <NavItem icon={<FiShoppingCart />} text="Checkout" to="/checkout" />                               
                     </div> 
                   </div>
 
