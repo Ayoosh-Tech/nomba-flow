@@ -203,6 +203,7 @@ Built for the **Nomba API Integration Hackathon 2026**.
 - Express.js
 - Tailwind CSS
 - OpenAI ChatGPT
+- 3MTT Nigeria
 
 
 
