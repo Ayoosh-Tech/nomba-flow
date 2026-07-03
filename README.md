@@ -45,10 +45,9 @@ It enables merchants to initiate secure payments, monitor transactions, view web
 ```
 NombaFlow
 │
-├── client
-│   ├── src
-│   ├── public
-│   └── package.json
+│── src
+│── public
+│── package.json
 │
 ├── server
 │   ├── routes
