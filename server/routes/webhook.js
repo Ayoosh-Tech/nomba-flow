@@ -1,5 +1,4 @@
 import express from "express";
-import { Route } from "react-router-dom";
 
 const router = express.Router();
 
