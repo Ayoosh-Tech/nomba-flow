@@ -2,18 +2,48 @@ import { useState } from "react";
 
 function Checkout() {
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [amount, setAmount] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handlePayment = (e) => {
-    e.preventDefault();
-  
-    setLoading(true);
+  const handlePayment = async (e) => {
+  e.preventDefault();
 
-    // Replace this with your backend call later
-    setTimeout(() => {
-      setLoading(false);
-      alert("Redirecting to Nomba Checkout...");
-    }, 2000);
-  };
+  setLoading(true);
+
+  try {
+    const response = await fetch("http://localhost:5000/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        amount: amount,
+        description: description
+      }),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    setLoading(false);
+
+    if (data.data.checkoutLink) {
+      window.location.href = data.data.checkoutLink;
+    }
+  } catch (error) {
+    console.error(error);
+    setLoading(false);
+    alert("Payment failed.");
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-slate-100 p-6">
@@ -43,11 +73,15 @@ function Checkout() {
                 placeholder="Customer Name"
                 className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
                 required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
                 required
               />
@@ -55,6 +89,8 @@ function Checkout() {
               <input
                 type="tel"
                 placeholder="Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
                 required
               />
@@ -62,6 +98,8 @@ function Checkout() {
               <input
                 type="number"
                 placeholder="Amount (₦)"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
                 className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
                 required
               />
@@ -69,6 +107,8 @@ function Checkout() {
               <textarea
                 rows="4"
                 placeholder="Payment Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-green-500 outline-none"
               />
 
@@ -98,7 +138,7 @@ function Checkout() {
 
               <div className="flex justify-between">
                 <span>Amount</span>
-                <span>₦25,000</span>
+                <span>₦{amount || 0}</span>
               </div>
 
               <div className="flex justify-between">
@@ -110,7 +150,7 @@ function Checkout() {
 
               <div className="flex justify-between text-xl font-bold">
                 <span>Total</span>
-                <span>₦25,100</span>
+                <span>₦{amount ? Number(amount) + 100 : 100}</span>
               </div>
 
             </div>
