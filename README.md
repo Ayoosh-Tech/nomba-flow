@@ -155,24 +155,24 @@ NOMBA_ACCOUNT_ID=your_account_id
 
 ### Landing Page
 
-![Landing Page](screenshoots/landing-page.png)
+![Landing Page](src/assets/screenshots/landing-page.png)
 
 ### Dashboard
 
-![Dashboard](screenshoots/dashboard.png)
+![Dashboard](src/assets/screenshots/dashboard.png)
 
 ### Checkout
 
-![Checkout](screenshoots/checkout.png)
-![Checkout -> Sandbox](screenshoots/checkout-sandbox.png)
+![Checkout](src/assets/screenshots/checkout.png)
+![Checkout -> Sandbox](src/assets/screenshots/checkout-sandbox.png)
 
 ### Transactions
 
-![Transaction](screenshoots/transaction.png)
+![Transaction](src/assets/screenshots/transaction.png)
 
 ### Webhooks
 
-![Webhooks](screenshoots/webhooks.png)
+![Webhooks](src/assets/screenshots/webhooks.png)
 
 ---
 
